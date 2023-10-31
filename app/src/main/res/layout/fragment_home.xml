@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.fragment.Home"
+    android:background="#F4FAFA">
+
+    <!-- TODO: Update blank fragment layout -->
+    <ImageView
+        android:id="@+id/icon_profile_home"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        android:layout_marginLeft="20dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/ic_profile"
+        />
+
+    <ImageView
+        android:id="@+id/icon_whatsapp_home"
+        android:layout_width="23dp"
+        android:layout_height="23dp"
+        android:layout_marginRight="23dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="35dp"
+        android:background="@drawable/ic_whatsap"
+        />
+
+    <TextView
+        android:id="@+id/sapaan_home"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_medium"
+        android:layout_marginTop="30dp"
+        android:layout_centerHorizontal="true"
+        android:text="Hello! Mau pesan apa hari ini?"
+        android:textSize="10sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_medium"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="0dp"
+        android:layout_below="@id/sapaan_home"
+        android:text="Nama Pengguna"
+        android:textColor="@color/black"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/pertanyaan_home"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_extrabold"
+        android:layout_marginTop="80dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="21dp"
+        android:text="Apa yang anda cari?"
+        android:textColor="@color/black"
+        android:textSize="20sp" />
+
+    <androidx.appcompat.widget.SearchView
+        android:layout_width="370dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="21dp"
+        android:layout_marginRight="21dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="115dp"
+        android:background="@color/white"
+        />
+
+    <TextView
+        android:id="@+id/kategori_home"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_medium"
+        android:layout_marginTop="167dp"
+        android:textStyle="bold"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="21dp"
+        android:text="Kategori"
+        android:textColor="@color/black"
+        android:textSize="15sp" />
+
+    <Button
+        android:id="@+id/kategori1"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_marginTop="200dp"
+        android:layout_marginEnd="6dp"
+        android:layout_toStartOf="@+id/kategori2"
+        android:background="@drawable/button_round_1"
+        android:fontFamily="@font/montserrat_medium"
+        android:text="Kue Kering"
+        android:textSize="9sp" />
+
+    <Button
+        android:id="@+id/kategori2"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_marginTop="200dp"
+        android:background="@drawable/button_round_1"
+        android:fontFamily="@font/montserrat_medium"
+        android:text="Kue Hari Raya"
+        android:layout_centerHorizontal="true"
+        android:textSize="9sp" />
+    <Button
+        android:id="@+id/kategori3"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_marginLeft="6dp"
+        android:layout_marginTop="200dp"
+        android:layout_toEndOf="@+id/kategori2"
+        android:background="@drawable/button_round_1"
+        android:fontFamily="@font/montserrat_medium"
+        android:text="Kue Hajatan"
+        android:textSize="9sp" />
+
+    <TextView
+        android:id="@+id/rekomendasi_home"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_medium"
+        android:layout_marginTop="250dp"
+        android:textStyle="bold"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="21dp"
+        android:text="Rekomendasi"
+        android:textColor="@color/black"
+        android:textSize="15sp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycleView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:listitem="@layout/fragment_home_item"
+        android:layout_marginTop="280dp"/>
+</RelativeLayout>
