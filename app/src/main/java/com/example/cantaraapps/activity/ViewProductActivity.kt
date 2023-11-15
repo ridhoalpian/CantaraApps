@@ -18,5 +18,9 @@ class ViewProductActivity : AppCompatActivity() {
         binding.floatingActionButton.setOnClickListener {
             startActivity(Intent(this, MainActivity::class.java))
         }
+
+        binding.buttonPesan.setOnClickListener {
+            startActivity(Intent(this, CheckoutActivity::class.java))
+        }
     }
 }

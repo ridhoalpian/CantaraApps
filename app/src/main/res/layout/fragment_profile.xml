@@ -19,19 +19,124 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imageView5" />
 
-    <TextView
-        android:id="@+id/textView7"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:layout_marginLeft="20dp"
         android:layout_marginTop="20dp"
-        android:text="Akun Saya"
-        android:textSize="16dp"
-        android:fontFamily="@font/montserrat_extrabold"
-        android:textColor="@color/white"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Transaksi"
+            android:layout_marginHorizontal="30dp"
+            android:fontFamily="@font/montserrat_medium"
+            />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_riwayat_tran"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/button_1"
+            android:drawableStart="@drawable/baseline_restore_24"
+            android:fontFamily="@font/montserrat_medium"
+            android:paddingHorizontal="20dp"
+            android:drawablePadding="20dp"
+            android:textAlignment="viewStart"
+            android:text="Riwayat Transaksi"
+            android:drawableTint="@color/blackdikit"
+            android:textAllCaps="false"
+            android:textColor="@color/blackdikit"
+            android:textSize="18dp"
+            tools:layout_editor_absoluteX="30dp"
+            tools:layout_editor_absoluteY="331dp" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="30dp"
+            android:background="@color/abu"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pengaturan"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/montserrat_medium"
+            />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_ubah_pass"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/button_1"
+            android:drawableStart="@drawable/outline_lock_24"
+            android:drawableTint="@color/blackdikit"
+            android:fontFamily="@font/montserrat_medium"
+            android:paddingHorizontal="20dp"
+            android:drawablePadding="20dp"
+            android:textAlignment="viewStart"
+            android:text="Ubah Password"
+            android:textAllCaps="false"
+            android:textColor="@color/blackdikit"
+            android:textSize="18dp"
+            tools:layout_editor_absoluteX="30dp"
+            tools:layout_editor_absoluteY="331dp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_set_akun"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/button_1"
+            android:drawableStart="@drawable/ic_outline_person_outline_24"
+            android:drawableTint="@color/blackdikit"
+            android:fontFamily="@font/montserrat_medium"
+            android:paddingHorizontal="20dp"
+            android:drawablePadding="20dp"
+            android:textAlignment="viewStart"
+            android:text="Pengaturan Akun"
+            android:textAllCaps="false"
+            android:textColor="@color/blackdikit"
+            android:textSize="18dp"
+            tools:layout_editor_absoluteX="30dp"
+            tools:layout_editor_absoluteY="331dp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_logout"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/button_1"
+            android:drawableStart="@drawable/baseline_logout_24"
+            android:drawableTint="@color/blackdikit"
+            android:fontFamily="@font/montserrat_medium"
+            android:paddingHorizontal="20dp"
+            android:drawablePadding="20dp"
+            android:textAlignment="viewStart"
+            android:text="Keluar"
+            android:textAllCaps="false"
+            android:textColor="@color/blackdikit"
+            android:textSize="18dp"
+            tools:layout_editor_absoluteX="30dp"
+            tools:layout_editor_absoluteY="331dp" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="30dp"
+            android:background="@color/abu"/>
+
+    </LinearLayout>
+
 
     <ImageView
         android:id="@+id/imageView5"
@@ -47,11 +152,11 @@
         android:id="@+id/imageView3"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="60dp"
         android:background="@drawable/logo_profile"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView7" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView8"
@@ -83,7 +188,7 @@
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="match_parent"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="20dp"
         android:layout_height="1dp"
         android:background="@color/abu"
         app:layout_constraintTop_toBottomOf="@+id/textView9"
