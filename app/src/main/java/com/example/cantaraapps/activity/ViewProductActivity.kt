@@ -16,7 +16,7 @@ class ViewProductActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.floatingActionButton.setOnClickListener {
-            startActivity(Intent(this, MainActivity::class.java))
+            onBackPressed()
         }
 
         binding.buttonPesan.setOnClickListener {

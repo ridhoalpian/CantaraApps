@@ -21,7 +21,6 @@
                 android:id="@+id/cardImage"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardElevation="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
@@ -31,7 +30,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="350dp"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/kue_gulung"
+                    android:src="@drawable/dargul"
                     />
 
                 <androidx.appcompat.widget.AppCompatButton
@@ -47,18 +46,6 @@
                     app:layout_constraintTop_toTopOf="@+id/cardImage" />
 
             </androidx.cardview.widget.CardView>
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/tambah_keranjang"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_marginRight="20dp"
-                android:background="@drawable/ic_baseline_add_shopping_cart"
-                android:backgroundTint="@color/blackdikit"
-                android:contentDescription="Kembali ke layar sebelumnya"
-                app:layout_constraintBottom_toBottomOf="@+id/textView1"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView" />
 
             <TextView
                 android:id="@+id/textView"
@@ -90,7 +77,8 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="10dp"
                 android:fontFamily="@font/montserrat_medium"
-                android:text="Terjual"
+                android:text="Terjual 10"
+                android:textStyle="bold"
                 android:textSize="15sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView1" />
@@ -134,7 +122,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="@color/abu"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="30dp"
                 android:layout_marginBottom="20dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView4"
@@ -154,44 +142,39 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <TextView
-        android:id="@+id/total_harga"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Total"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="40dp"
-        android:fontFamily="@font/montserrat_medium"
-        android:textSize="15sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView4" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Rp. 50.000"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="40dp"
-        android:fontFamily="@font/montserrat_extrabold"
-        android:textSize="25sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/total_harga" />
-
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button_pesan"
-        android:layout_width="wrap_content"
-        android:layout_height="40dp"
+        android:layout_width="160dp"
+        android:layout_height="50dp"
+        android:layout_marginRight="20dp"
         android:background="@drawable/button_round_1"
         android:fontFamily="@font/montserrat_extrabold"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
         android:text="Pesan Sekarang"
-        android:layout_marginRight="40dp"
         android:textAllCaps="false"
         android:textColor="@color/white"
         android:textSize="15sp"
-        android:paddingRight="10dp"
-        android:paddingLeft="10dp"
         app:layout_constraintBottom_toBottomOf="@+id/imageView4"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/imageView4"
+        app:layout_constraintTop_toTopOf="@+id/imageView4" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_pesan3"
+        android:layout_width="160dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="20dp"
+        android:background="@drawable/button_round_1"
+        android:backgroundTint="@color/white"
+        android:fontFamily="@font/montserrat_extrabold"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:text="Keranjang"
+        android:textAllCaps="false"
+        android:textColor="@color/biru"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView4"
+        app:layout_constraintStart_toStartOf="@+id/imageView4"
         app:layout_constraintTop_toTopOf="@+id/imageView4" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

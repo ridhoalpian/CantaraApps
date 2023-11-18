@@ -14,7 +14,7 @@ class CheckoutActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.floatingActionButton.setOnClickListener{
-//            startActivity(Intent(this, ViewProductActivity,Basket::class.java))
+            onBackPressed()
         }
     }
 }
