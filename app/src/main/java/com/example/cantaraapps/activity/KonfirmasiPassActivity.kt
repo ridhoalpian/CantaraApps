@@ -9,41 +9,43 @@ import com.android.volley.RequestQueue
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.example.cantaraapps.database.DbContract
-import com.example.cantaraapps.databinding.ActivityLupaPasswordBinding
+import com.example.cantaraapps.databinding.ActivityKonfirmasiPassBinding
 
-class LupaPasswordActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityLupaPasswordBinding
+class KonfirmasiPassActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityKonfirmasiPassBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityLupaPasswordBinding.inflate(layoutInflater)
+        binding = ActivityKonfirmasiPassBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        binding.buttonKonfirmasipass.setOnClickListener {
+            konfirmasiPass()
+        }
 
-        binding.buttonKonfirmasi.setOnClickListener {
-            konfirmasiUser()
-//            startActivity(Intent(this, NewPasswordActivity::class.java))
+        binding.btnKembaliUbapass.setOnClickListener {
+            onBackPressed()
         }
     }
+    private fun konfirmasiPass() {
+        val sharedPref = getSharedPreferences("user_data", MODE_PRIVATE)
+        val username = sharedPref?.getString("username", "")
+        val password = binding.edtPassLama.text.toString()
 
-    private fun konfirmasiUser() {
-        val username = binding.edtKonfirUsername.text.toString()
-        val security = binding.edtMakananFav.text.toString()
-
-        if (!(username.isEmpty() || security.isEmpty())) {
+        if (!(username!!.isEmpty() || password.isEmpty())) {
 
             val requestQueue: RequestQueue = Volley.newRequestQueue(applicationContext)
 
-
             val stringRequest = StringRequest(
-                Request.Method.GET, "${DbContract.urlLupa}?username=$username&security=$security",
+                Request.Method.GET, "${DbContract.urlKonfirPass}?username=$username&password=$password",
                 { response ->
                     if (response == "Tolong Masukkan Password Baru") {
                         Toast.makeText(applicationContext, "Konfirmasi Berhasil", Toast.LENGTH_SHORT).show()
-                        val intent = Intent(applicationContext, NewPasswordActivity::class.java)
+                        val intent = Intent(applicationContext, UbahPassActivity::class.java)
                         intent.putExtra("username", username)
                         startActivity(intent)
+                        finish()
                     } else {
-                        Toast.makeText(applicationContext, "Username atau Makanan Favorit salah", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(applicationContext, "Password Tidak Sesuai", Toast.LENGTH_SHORT).show()
                     }
                 }
             ) { error ->
@@ -51,7 +53,7 @@ class LupaPasswordActivity : AppCompatActivity() {
             }
             requestQueue.add(stringRequest)
         } else {
-            Toast.makeText(applicationContext, "Tolong lengkapi data", Toast.LENGTH_SHORT).show()
+            Toast.makeText(applicationContext, "Tolong Lengkapi Data", Toast.LENGTH_SHORT).show()
         }
     }
 }

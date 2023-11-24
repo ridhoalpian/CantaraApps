@@ -23,6 +23,32 @@ class Basket : Fragment() {
             val intent = Intent(requireActivity(), CheckoutActivity::class.java)
             startActivity(intent)
         }
+
+        val editText = binding.editText
+        val btnPlus = binding.btnPlus
+        val btnMinus = binding.btnMinus
+
+        btnPlus.setOnClickListener {
+            val valueStr = editText.text.toString()
+
+            var value = Integer.parseInt(valueStr)
+
+            value++
+
+            editText.setText(value.toString())
+        }
+
+        btnMinus.setOnClickListener {
+            val valueStr = editText.text.toString()
+
+            var value = Integer.parseInt(valueStr)
+
+            if (value > 0) {
+                value--
+                editText.setText(value.toString())
+            }
+        }
+
         return binding.root
     }
 }

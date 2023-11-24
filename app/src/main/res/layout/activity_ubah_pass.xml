@@ -58,6 +58,7 @@
         android:layout_height="70dp"
         android:layout_marginTop="60dp"
         android:background="@drawable/outline_lock_24"
+        android:backgroundTint="@color/biru"
         app:layout_constraintBottom_toBottomOf="@+id/imageView3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -72,8 +73,9 @@
         android:layout_marginRight="80dp"
         android:layout_marginTop="20dp"
         android:fontFamily="@font/montserrat_medium"
-        android:text="@string/login_info"
+        android:text="@string/gantipassword_info"
         android:textAlignment="center"
+        android:textStyle="bold"
         android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -87,7 +89,7 @@
         android:layout_alignParentEnd="true"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
 
         android:orientation="vertical"
         android:padding="10dp"
@@ -95,41 +97,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView1">
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/userTextInputLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:boxBackgroundMode="outline"
-            app:endIconMode="password_toggle"
-            app:endIconTint="#BDBDBD"
-            app:hintEnabled="true">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/edt_user"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:drawableStart="@drawable/outline_lock_24"
-                android:drawablePadding="20dp"
-                android:inputType="textPassword"
-                android:fontFamily="@font/montserrat_medium"
-                android:hint="Password Lama"
-                android:paddingLeft="20dp"
-                android:textSize="15sp" />
-
-        </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/userTextInputLayout2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
             app:boxBackgroundMode="outline"
             app:endIconMode="password_toggle"
             app:endIconTint="#BDBDBD"
             app:hintEnabled="true">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/edt_user2"
+                android:id="@+id/edt_pass_baru"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:drawableStart="@drawable/outline_lock_24"
@@ -153,7 +132,7 @@
             app:endIconTint="#BDBDBD">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/edt_user3"
+                android:id="@+id/edt_konfir_pass"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:drawableStart="@drawable/outline_lock_24"

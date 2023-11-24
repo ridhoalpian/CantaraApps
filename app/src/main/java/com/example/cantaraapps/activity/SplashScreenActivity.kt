@@ -18,10 +18,18 @@ class SplashScreenActivity : AppCompatActivity() {
         val fadeIn = AnimationUtils.loadAnimation(this, R.anim.fade_in)
         binding.root.startAnimation(fadeIn)
 
+        val sharedPreferences = getSharedPreferences("user_data", MODE_PRIVATE)
+        val isLoggedIn = sharedPreferences.getBoolean("is_logged_in", false)
+
         Handler().postDelayed({
             val fadeOut = AnimationUtils.loadAnimation(this, R.anim.fade_out)
             binding.root.startAnimation(fadeOut)
-            startActivity(Intent(this, LoginActivity::class.java))
+            if (isLoggedIn) {
+                startActivity(Intent(this, MainActivity::class.java))
+            } else {
+                startActivity(Intent(this, LoginActivity::class.java))
+            }
+            finish()
         }, 3000)
     }
 }

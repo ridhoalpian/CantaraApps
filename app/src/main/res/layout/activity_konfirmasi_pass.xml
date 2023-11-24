@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#20A5B2"
-    tools:context=".activity.SettingAkunActivity">
+    tools:context=".activity.KonfirmasiPassActivity">
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_kembali_setting_akun"
+        android:id="@+id/btn_kembali_ubapass"
         android:layout_width="30dp"
         android:layout_height="27dp"
         android:layout_marginLeft="20dp"
@@ -57,7 +58,8 @@
         android:layout_width="70dp"
         android:layout_height="70dp"
         android:layout_marginTop="60dp"
-        android:background="@drawable/ic_outline_verified_user"
+        android:background="@drawable/outline_lock_24"
+        android:backgroundTint="@color/biru"
         app:layout_constraintBottom_toBottomOf="@+id/imageView3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -71,11 +73,11 @@
         android:layout_marginLeft="80dp"
         android:layout_marginRight="80dp"
         android:layout_marginTop="20dp"
-        android:fontFamily="@font/montserrat_extrabold"
-        android:text="Ubah Profile"
-        android:textStyle="bold"
+        android:fontFamily="@font/montserrat_medium"
+        android:text="@string/ubahdatadiri_info"
         android:textAlignment="center"
-        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView5" />
@@ -96,62 +98,25 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView1">
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/userTextInputLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:boxBackgroundMode="outline"
-            app:hintEnabled="true">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/edt_namalengkap"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:drawablePadding="20dp"
-                android:inputType="textPersonName"
-                android:fontFamily="@font/montserrat_medium"
-                android:hint="Nama"
-                android:paddingLeft="20dp"
-                android:textSize="15sp" />
-
-        </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/userTextInputLayout2"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="10dp"
-            app:boxBackgroundMode="outline"
-            app:hintEnabled="true">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/edt_alamat"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:drawablePadding="20dp"
-                android:fontFamily="@font/montserrat_medium"
-                android:hint="Alamat"
-                android:paddingLeft="20dp"
-                android:textSize="15sp" />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/userTextInputLayout3"
-            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
             app:boxBackgroundMode="outline"
+            app:endIconMode="password_toggle"
+            app:endIconTint="#BDBDBD"
             app:hintEnabled="true">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/edt_telp"
+                android:id="@+id/edt_pass_lama"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:drawableStart="@drawable/outline_lock_24"
                 android:drawablePadding="20dp"
-                android:inputType="phone"
+                android:inputType="textPassword"
                 android:fontFamily="@font/montserrat_medium"
-                android:hint="Telepon"
+                android:hint="Password Lama"
                 android:paddingLeft="20dp"
                 android:textSize="15sp" />
 
@@ -160,7 +125,7 @@
     </LinearLayout>
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/button_simpan"
+        android:id="@+id/button_konfirmasipass"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="45dp"
@@ -169,7 +134,7 @@
         android:background="@drawable/button_round_1"
         android:fontFamily="@font/montserrat_extrabold"
         android:padding="20dp"
-        android:text="Simpan"
+        android:text="Konfirmasi"
         android:textAllCaps="false"
         android:textColor="@color/white"
         android:textSize="20sp"

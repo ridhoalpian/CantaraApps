@@ -198,23 +198,29 @@
         android:layout_width="120dp"
         android:layout_height="120dp"
         android:background="@drawable/bg_elips_profile"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView3"
+        app:layout_constraintBottom_toBottomOf="@+id/profileImage"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView3" />
+        app:layout_constraintTop_toTopOf="@+id/profileImage" />
 
-    <ImageView
-        android:id="@+id/imageView3"
+    <TextView
+        android:id="@+id/profileImage"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginTop="60dp"
-        android:background="@drawable/logo_profile"
+        android:gravity="center"
+        android:text="R"
+        android:textColor="@color/blackdikit"
+        android:textAllCaps="true"
+        android:textSize="40sp"
+        android:textStyle="bold"
+        android:background="@drawable/circle_background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView8"
+        android:id="@+id/namaLengkap"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
@@ -228,7 +234,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView5" />
 
     <TextView
-        android:id="@+id/textView9"
+        android:id="@+id/username"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
@@ -238,7 +244,7 @@
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView8" />
+        app:layout_constraintTop_toBottomOf="@+id/namaLengkap" />
 
     <ImageView
         android:id="@+id/imageView2"
@@ -246,7 +252,7 @@
         android:layout_marginTop="20dp"
         android:layout_height="1dp"
         android:background="@color/abu"
-        app:layout_constraintTop_toBottomOf="@+id/textView9"
+        app:layout_constraintTop_toBottomOf="@+id/username"
         tools:layout_editor_absoluteX="20dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -79,10 +79,33 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Nama Lengkap"
+                android:inputType="textPersonName"
                 android:drawableStart="@drawable/ic_baseline_contacts"
                 android:drawablePadding="20sp"
                 android:fontFamily="@font/montserrat_medium"
                 android:textSize="15sp" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            android:id="@+id/lokasiTextInputLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:boxBackgroundMode="outline"
+            app:hintEnabled="true">
+
+            <AutoCompleteTextView
+                android:id="@+id/autocomplatext"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:drawableStart="@drawable/baseline_warehouse_24"
+                android:drawablePadding="20dp"
+                android:inputType="none"
+                android:fontFamily="@font/montserrat_medium"
+                android:text="Pilih Kecamatan"
+                android:textSize="15sp"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -98,7 +121,7 @@
                 android:id="@+id/edt_alamat"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Alamat"
+                android:hint="Alamat Lengkap"
                 android:drawableStart="@drawable/ic_baseline_add_location"
                 android:drawablePadding="20dp"
                 android:fontFamily="@font/montserrat_medium"
@@ -123,7 +146,7 @@
                 android:drawableStart="@drawable/ic_baseline_local_phone"
                 android:drawablePadding="20dp"
                 android:fontFamily="@font/montserrat_medium"
-                android:inputType="phone"
+                android:inputType="number"
                 android:textSize="15sp" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -202,6 +225,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Makanan Favorit"
+                android:inputType="textPersonName"
                 android:drawableStart="@drawable/ic_baseline_fastfood"
                 android:drawablePadding="20dp"
                 android:textColorHint="#BDBDBD"

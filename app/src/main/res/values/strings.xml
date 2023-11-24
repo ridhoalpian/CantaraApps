@@ -11,5 +11,13 @@
     <string name="password_baru">Password baru anda harus berbeda dengan password sebelumnya</string>
     <string name="lorem">Kue dadar gulung (Melayu: kuih ketayap—dialek Sabah: kuih lenggang) merupakan makanan khas Indonesia dan Malaysia yang dapat digolongkan sebagai panekuk yang diisi dengan parutan kelapa yang dicampur dengan gula jawa cair. Isi ini disebut unti. Kulit dadar gulung identik dengan warna hijau karena diberi pewarna daun suji. Kulit dadar gulung yang berbentuk seperti telur dadar menjadi salah satu alasan mengapa makanan ini disebut kue dadar gulung.</string>
     <string name="alamat_user">Jl. S. Parman Gang Pelita 2 no.114, kecamatan mayangan, kelurahan jati - kota probolinggo (kode pos 67217 )</string>
+    <string name="gantipassword_info">Silahkan masukkan password baru dan konfirmasi password</string>
+    <string name="ubahdatadiri_info">Untuk konfirmasi, silahkan masukkan password lama terlebih dahulu</string>
+
+    <string-array name="lokasi_array">
+        <item>Besuk</item>
+        <item>Kraksaan</item>
+        <item>Krejengan</item>
+    </string-array>
 
 </resources>

@@ -7,14 +7,15 @@ import androidx.fragment.app.FragmentPagerAdapter
 import com.example.cantaraapps.ui.fragment.Dibuat
 import com.example.cantaraapps.ui.fragment.Dikirim
 import com.example.cantaraapps.ui.fragment.Disetujui
-import com.example.cantaraapps.ui.fragment.Pengajuan
+import com.example.cantaraapps.ui.fragment.Permintaan
+import com.example.cantaraapps.ui.fragment.Selesai
 
 internal class TabLayoutAdapter(var context: Context, fm: FragmentManager, var totalTabs: Int): FragmentPagerAdapter(fm) {
 
     override fun getItem(position: Int): Fragment {
         return when(position){
             0 -> {
-                Pengajuan()
+                Permintaan()
             }
             1 -> {
                 Disetujui()
@@ -24,6 +25,9 @@ internal class TabLayoutAdapter(var context: Context, fm: FragmentManager, var t
             }
             3 -> {
                 Dikirim()
+            }
+            4 -> {
+                Selesai()
             }
             else -> getItem(position)
         }

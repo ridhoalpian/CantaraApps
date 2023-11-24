@@ -26,10 +26,11 @@ class RiwayatTransaksiActivity : AppCompatActivity() {
         tabLayout = findViewById(R.id.tabLayout)
         viewPager = findViewById(R.id.viewPager)
 
-        tabLayout.addTab(tabLayout.newTab().setText("Pengajuan"))
+        tabLayout.addTab(tabLayout.newTab().setText("Permintaan"))
         tabLayout.addTab(tabLayout.newTab().setText("Disetujui"))
         tabLayout.addTab(tabLayout.newTab().setText("Dibuat"))
         tabLayout.addTab(tabLayout.newTab().setText("Dikirim"))
+        tabLayout.addTab(tabLayout.newTab().setText("Selesai"))
         tabLayout.tabGravity = TabLayout.GRAVITY_FILL
 
         val adapter = TabLayoutAdapter(this, supportFragmentManager,

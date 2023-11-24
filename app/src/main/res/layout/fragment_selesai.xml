@@ -3,12 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.fragment.Permintaan">
+    tools:context=".ui.fragment.Selesai">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Permintaan"
+        android:text="Selesai"
         android:textSize="30dp"
         android:gravity="center"
         android:textStyle="bold"/>
