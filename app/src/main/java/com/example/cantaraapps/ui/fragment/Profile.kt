@@ -38,7 +38,7 @@ class Profile : Fragment() {
         val isLoggedIn = sharedPreferences.getBoolean("is_logged_in", false)
 
         if (isLoggedIn) {
-            val username = sharedPreferences.getString("username", "")
+            val username = sharedPreferences.getString("nama", "")
             val firstChar = username?.take(1)
 
             binding.profileImage.text = firstChar
@@ -46,10 +46,11 @@ class Profile : Fragment() {
 
         val sharedPref = activity?.getSharedPreferences("user_data", MODE_PRIVATE)
         val username = sharedPref?.getString("username", "")
+        val nama = sharedPref?.getString("nama", "")
 
         if (!username.isNullOrEmpty()) {
             binding.username.text = username
-            fetchUserDataFromServer(username)
+            binding.namaLengkap.text = nama
         }
 
         binding.btnLogout.setOnClickListener {
@@ -80,32 +81,5 @@ class Profile : Fragment() {
         }
 
         return binding.root
-    }
-
-    private fun fetchUserDataFromServer(username: String?) {
-        // Buat request untuk mengambil data pengguna dari server
-        val requestQueue: RequestQueue = Volley.newRequestQueue(requireContext())
-        val url = "${DbContract.urlTampilData}?username=$username" // Gantilah dengan URL yang sesuai
-
-        val stringRequest = StringRequest(
-            Request.Method.GET, url,
-            { response ->
-                // Proses respons JSON dan tampilkan data pada TextView atau bidang lainnya
-                try {
-                    val jsonObject = JSONObject(response)
-                    val namaLengkap = jsonObject.getString("nama")
-
-                    // Tampilkan data pada TextView atau bidang lainnya
-                    binding.namaLengkap.text = namaLengkap
-                } catch (e: JSONException) {
-                    e.printStackTrace()
-                }
-            },
-            { error ->
-                error.printStackTrace()
-            }
-        )
-
-        requestQueue.add(stringRequest)
     }
 }

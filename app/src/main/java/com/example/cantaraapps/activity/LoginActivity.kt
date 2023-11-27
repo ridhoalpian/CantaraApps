@@ -19,6 +19,7 @@ import com.example.cantaraapps.database.DbContract
 //import com.android.volley.toolbox.Volley
 //import com.example.cantaraapps.database.DbContract
 import com.example.cantaraapps.databinding.ActivityLoginBinding
+import org.json.JSONObject
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding
@@ -53,16 +54,23 @@ class LoginActivity : AppCompatActivity() {
             val stringRequest = StringRequest(
                 Request.Method.GET, "${DbContract.urlLogin}?username=$username&password=$password",
                 { response ->
-                    if (response == "Selamat Datang") {
+                    if (response == "0") {
+                        Toast.makeText(applicationContext, "Username atau Password Salah", Toast.LENGTH_SHORT).show()
+                    } else {
+                        val userData = JSONObject(response)
                         val sharedPref = getSharedPreferences("user_data", MODE_PRIVATE)
                         val editor = sharedPref.edit()
-                        editor.putString("username", username)
+                        editor.putString("username", userData.getString("username"))
+                        editor.putString("nama", userData.getString("nama"))
+                        editor.putString("kecamatan", userData.getString("kecamatan"))
+                        editor.putString("alamat_lengkap", userData.getString("alamat_lengkap"))
+                        editor.putString("telp", userData.getString("telp"))
+                        editor.putString("id_user", userData.getString("id_user"))
                         editor.putBoolean("is_logged_in", true)
                         editor.apply()
-                        Toast.makeText(applicationContext, "Selamat Datang $username", Toast.LENGTH_SHORT).show()
+
+                        Toast.makeText(applicationContext, "Selamat Datang ${userData.getString("nama")}", Toast.LENGTH_SHORT).show()
                         startActivity(Intent(applicationContext, MainActivity::class.java))
-                    } else {
-                        Toast.makeText(applicationContext, "Username atau Password Salah", Toast.LENGTH_SHORT).show()
                     }
                 }
             ) { error ->

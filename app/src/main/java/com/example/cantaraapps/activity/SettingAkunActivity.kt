@@ -3,7 +3,6 @@ package com.example.cantaraapps.activity
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
-import com.android.volley.Request
 import com.android.volley.RequestQueue
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
@@ -22,10 +21,14 @@ class SettingAkunActivity : AppCompatActivity() {
 
         val sharedPref = getSharedPreferences("user_data", MODE_PRIVATE)
         val username = sharedPref?.getString("username", "")
+        val nama_lengkap = sharedPref?.getString("nama", "")
+        val alamat_lengkap = sharedPref?.getString("alamat_lengkap", "")
+        val notelp = sharedPref?.getString("telp", "")
 
         if (!username.isNullOrEmpty()) {
-            // Ambil dan tampilkan data pengguna dari server
-            fetchUserDataFromServer(username)
+            binding.edtNamalengkap.setText(nama_lengkap ?: "")
+            binding.edtAlamat.setText(alamat_lengkap ?: "")
+            binding.edtTelp.setText(notelp ?: "")
         }
 
         binding.btnKembaliSettingAkun.setOnClickListener {
@@ -45,35 +48,13 @@ class SettingAkunActivity : AppCompatActivity() {
         }
     }
 
-    private fun fetchUserDataFromServer(username: String?) {
-        // Buat request untuk mengambil data pengguna dari server
-        val requestQueue: RequestQueue = Volley.newRequestQueue(applicationContext)
-        val url = "${DbContract.urlTampilData}?username=$username" // Gantilah dengan URL yang sesuai
-
-        val stringRequest = StringRequest(
-            Request.Method.GET, url,
-            { response ->
-                // Proses respons JSON dan tampilkan data pada TextView atau bidang lainnya
-                try {
-                    val jsonObject = JSONObject(response)
-                    val namaLengkap = jsonObject.getString("nama")
-                    val alamat = jsonObject.getString("alamat_lengkap")
-                    val telp = jsonObject.getString("telp")
-
-                    // Tampilkan data pada TextView atau bidang lainnya
-                    binding.edtNamalengkap.setText(namaLengkap)
-                    binding.edtAlamat.setText(alamat)
-                    binding.edtTelp.setText(telp)
-                } catch (e: JSONException) {
-                    e.printStackTrace()
-                }
-            },
-            { error ->
-                error.printStackTrace()
-            }
-        )
-
-        requestQueue.add(stringRequest)
+    private fun saveUserDataToSharedPreferences(namaLengkap: String, alamat: String, telp: String) {
+        val sharedPref = getSharedPreferences("user_data", MODE_PRIVATE)
+        val editor = sharedPref.edit()
+        editor.putString("nama", namaLengkap)
+        editor.putString("alamat_lengkap", alamat)
+        editor.putString("telp", telp)
+        editor.apply()
     }
 
     private fun updateUserDataOnServer(username: String?, nama: String, alamatlengkap: String, telp: String) {
@@ -91,6 +72,9 @@ class SettingAkunActivity : AppCompatActivity() {
                     if (status == "success") {
                         // Jika pembaruan berhasil, tampilkan pesan sukses
                         Toast.makeText(applicationContext, message, Toast.LENGTH_SHORT).show()
+
+                        saveUserDataToSharedPreferences(nama, alamatlengkap, telp)
+
                         finish()
                     } else {
                         // Jika pembaruan gagal, tampilkan pesan error

@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#f4f4f4"
+    android:background="#ffffff"
     tools:context=".activity.CheckoutActivity">
 
     <ScrollView
@@ -37,46 +37,26 @@
                 android:id="@+id/textView10"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="20dp"
                 android:fontFamily="@font/montserrat_extrabold"
                 android:text="Detail Transaksi"
                 android:textSize="20dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/floatingActionButton" />
+                android:layout_marginLeft="20dp"
+                app:layout_constraintBottom_toBottomOf="@+id/floatingActionButton"
+                app:layout_constraintStart_toEndOf="@+id/floatingActionButton"
+                app:layout_constraintTop_toTopOf="@+id/floatingActionButton" />
 
             <TextView
-                android:id="@+id/textView12"
+                android:id="@+id/textView2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="20dp"
                 android:fontFamily="@font/montserrat_extrabold"
-                android:text="Metode Pembayaran"
-                android:textSize="20dp"
+                android:text="Barang yang dibeli"
+                android:textSize="15dp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView12" />
+                app:layout_constraintTop_toBottomOf="@+id/imageView17" />
 
-            <ImageView
-                android:id="@+id/imageView13"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="20dp"
-                android:background="@drawable/ic_bank_bca"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView12" />
-
-
-            <ImageView
-                android:id="@+id/imageView14"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:layout_marginRight="20dp"
-                android:background="@drawable/ic_baseline_keyboard_arrow_down"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView12" />
 
             <TextView
                 android:id="@+id/textView11"
@@ -85,22 +65,34 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="20dp"
                 android:fontFamily="@font/montserrat_extrabold"
-                android:text="Alamat"
-                android:textSize="20dp"
+                android:text="Pengiriman dan Pembayaran"
+                android:textSize="15dp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView11" />
+                app:layout_constraintTop_toBottomOf="@+id/imageView10" />
+
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/montserrat_extrabold"
+                android:text="Tanggal dan Penerimaan"
+                android:textSize="15dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView1" />
 
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/materialCardView1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                app:cardCornerRadius="10dp"
                 android:layout_marginHorizontal="10dp"
+                android:layout_marginTop="12dp"
+                app:cardCornerRadius="10dp"
                 app:cardUseCompatPadding="true"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView17">
+                app:layout_constraintTop_toBottomOf="@+id/textView2">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -110,7 +102,7 @@
                         android:id="@+id/constraintLayout1"
                         android:layout_width="match_parent"
                         android:layout_height="100dp"
-                        android:background="#f4f4f4"
+                        android:background="#ffffff"
                         android:padding="8dp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.0"
@@ -129,7 +121,7 @@
                             app:layout_constraintTop_toTopOf="parent">
 
                             <ImageView
-                                android:id="@+id/itemImage1"
+                                android:id="@+id/gambarKue"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:background="@drawable/dadargulung"
@@ -138,7 +130,7 @@
                         </androidx.cardview.widget.CardView>
 
                         <TextView
-                            android:id="@+id/itemContent1"
+                            android:id="@+id/namaKue"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="15dp"
@@ -151,7 +143,7 @@
                             app:layout_constraintTop_toTopOf="@+id/cardView1" />
 
                         <TextView
-                            android:id="@+id/itemContent2"
+                            android:id="@+id/bnykkue"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="15dp"
@@ -164,7 +156,7 @@
                             app:layout_constraintStart_toEndOf="@+id/cardView1" />
 
                         <TextView
-                            android:id="@+id/itemContent3"
+                            android:id="@+id/hrgkue"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginRight="10dp"
@@ -183,13 +175,93 @@
 
             </com.google.android.material.card.MaterialCardView>
 
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/materialCardView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginTop="10dp"
+                app:cardCornerRadius="10dp"
+                app:cardUseCompatPadding="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView11">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/constraintLayout2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="#ffffff"
+                        android:padding="8dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <ImageView
+                            android:id="@+id/imageView13"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_marginVertical="10dp"
+                            android:layout_marginLeft="10dp"
+                            android:background="@drawable/ic_gopay"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+
+                        <ImageView
+                            android:id="@+id/copyBCA"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="10dp"
+                            android:background="@drawable/baseline_content_copy_24"
+                            app:layout_constraintBottom_toBottomOf="@+id/nomerakun"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="@+id/bank_bca" />
+
+                        <TextView
+                            android:id="@+id/bank_bca"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="5dp"
+                            android:fontFamily="@font/montserrat_medium"
+                            android:text="Gopay"
+                            app:layout_constraintStart_toEndOf="@+id/imageView13"
+                            app:layout_constraintTop_toTopOf="@+id/imageView13" />
+
+
+                        <TextView
+                            android:id="@+id/nomerakun"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginBottom="8dp"
+                            android:fontFamily="@font/montserrat_medium"
+                            android:text="082389422820"
+                            android:textStyle="bold"
+                            app:layout_constraintBottom_toBottomOf="@+id/imageView13"
+                            app:layout_constraintStart_toEndOf="@+id/imageView13" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
             <ImageView
                 android:id="@+id/imageView1"
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
+                android:layout_height="6dp"
                 android:layout_marginTop="10dp"
-                android:layout_marginBottom="20dp"
-                android:background="@color/abu"
+                android:background="#e3e3e3"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/materialCardView1" />
@@ -197,9 +269,9 @@
             <ImageView
                 android:id="@+id/imageView17"
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
+                android:layout_height="6dp"
                 android:layout_marginTop="20dp"
-                android:background="@color/abu"
+                android:background="#e3e3e3"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView10" />
@@ -212,22 +284,22 @@
                 android:background="@color/abu"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tglditerima" />
+                app:layout_constraintTop_toBottomOf="@+id/alamatuser"/>
 
             <ImageView
                 android:id="@+id/imageView10"
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
+                android:layout_height="6dp"
                 android:layout_marginTop="20dp"
-                android:background="@color/abu"
+                android:background="#e3e3e3"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editText2" />
+                app:layout_constraintTop_toBottomOf="@+id/tglditerima" />
 
             <ImageView
                 android:id="@+id/imageView16"
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
+                android:layout_height="6dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="20dp"
                 android:background="@color/abu"
@@ -239,8 +311,8 @@
                 android:id="@+id/btn_riwayat_tran"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:layout_marginHorizontal="30dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="10dp"
                 android:background="@drawable/button_1"
                 android:drawableStart="@drawable/outline_file_upload_24"
                 android:drawablePadding="20dp"
@@ -251,39 +323,40 @@
                 android:textAllCaps="false"
                 android:textColor="@color/blackdikit"
                 android:textSize="16dp"
-                app:layout_constraintTop_toBottomOf="@+id/imageView10"
+                app:layout_constraintTop_toBottomOf="@+id/materialCardView2"
                 tools:layout_editor_absoluteX="30dp" />
-
-            <ImageView
-                android:id="@+id/imageView12"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginTop="20dp"
-                android:background="@color/abu"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/alamatuser" />
-
-            <ImageView
-                android:id="@+id/imageView15"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginTop="20dp"
-                android:background="@color/abu"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/bank_bca" />
 
             <TextView
                 android:id="@+id/text_estim"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:fontFamily="@font/montserrat_medium"
                 android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/montserrat_medium"
                 android:text="Estimasi Pesanan Diterima"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView1" />
+                app:layout_constraintTop_toBottomOf="@+id/tglditentukan" />
+
+            <TextView
+                android:id="@+id/text_tanggal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/montserrat_medium"
+                android:text="Pilih Tanggal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView7" />
+
+            <ImageButton
+                android:id="@+id/pilihtanggal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/baseline_calendar_today_24"
+                app:layout_constraintBottom_toBottomOf="@+id/tglditentukan"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/text_tanggal" />
 
             <TextView
                 android:id="@+id/pesan"
@@ -291,47 +364,47 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="20dp"
-                android:fontFamily="@font/montserrat_medium"
-                android:text="Pesan:"
-                android:textStyle="bold"
+                android:fontFamily="@font/montserrat_extrabold"
+                android:text="Pesan"
+                android:textSize="15sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView15" />
+                app:layout_constraintTop_toBottomOf="@+id/imageView16" />
 
             <EditText
-                android:id="@+id/editText2"
+                android:id="@+id/edtPesan"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="10dp"
+                android:layout_marginBottom="20dp"
                 android:fontFamily="@font/montserrat_medium"
-                android:hint="Silahkan tinggalkan pesan disini..."
+                android:hint="Pesan kepada penjual..."
                 android:inputType="textMultiLine"
                 android:textSize="15sp"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/pesan"
                 tools:layout_editor_absoluteX="20dp" />
-
-            <TextView
-                android:id="@+id/bank_bca"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:fontFamily="@font/montserrat_medium"
-                android:text="Bank BCA"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="@+id/imageView13"
-                app:layout_constraintStart_toEndOf="@+id/imageView13"
-                app:layout_constraintTop_toTopOf="@+id/imageView13" />
-
 
             <TextView
                 android:id="@+id/alamatuser"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
                 android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="10dp"
                 android:fontFamily="@font/montserrat_medium"
                 android:text="@string/alamat_user"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/namadantelp" />
+
+            <TextView
+                android:id="@+id/namadantelp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/montserrat_medium"
+                android:text="Ridho - (08980682076)"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView11" />
@@ -344,9 +417,21 @@
                 android:fontFamily="@font/montserrat_medium"
                 android:textStyle="bold"
                 android:layout_marginLeft="20dp"
-                android:text="8 Desember 2023"
+                android:text="YYYY-MM-DD"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/text_estim" />
+
+            <TextView
+                android:id="@+id/tglditentukan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="5dp"
+                android:fontFamily="@font/montserrat_medium"
+                android:text="YYYY-MM-DD"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/text_tanggal" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
@@ -362,7 +447,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/total_harga"
+        android:id="@+id/total_pembayaran"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Total Pembayaran"
@@ -374,6 +459,7 @@
         app:layout_constraintTop_toTopOf="@+id/imageView4" />
 
     <TextView
+        android:id="@+id/totalhrg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Rp. 50.000"
@@ -382,15 +468,15 @@
         android:fontFamily="@font/montserrat_extrabold"
         android:textSize="25sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/total_harga" />
+        app:layout_constraintTop_toTopOf="@+id/total_pembayaran" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button_pesan"
-        android:layout_width="wrap_content"
-        android:layout_height="40dp"
+        android:layout_width="160dp"
+        android:layout_height="50dp"
         android:background="@drawable/button_round_1"
         android:fontFamily="@font/montserrat_extrabold"
-        android:text="Bayar Sekarang"
+        android:text="Buat Pesanan"
         android:layout_marginRight="30dp"
         android:textAllCaps="false"
         android:textColor="@color/white"
@@ -400,7 +486,5 @@
         app:layout_constraintBottom_toBottomOf="@+id/imageView4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imageView4" />
-
-    
 
 </androidx.constraintlayout.widget.ConstraintLayout>
