@@ -7,6 +7,7 @@ import androidx.fragment.app.FragmentPagerAdapter
 import com.example.cantaraapps.ui.fragment.Dibuat
 import com.example.cantaraapps.ui.fragment.Dikirim
 import com.example.cantaraapps.ui.fragment.Disetujui
+import com.example.cantaraapps.ui.fragment.Ditolak
 import com.example.cantaraapps.ui.fragment.Permintaan
 import com.example.cantaraapps.ui.fragment.Selesai
 
@@ -28,6 +29,9 @@ internal class TabLayoutAdapter(var context: Context, fm: FragmentManager, var t
             }
             4 -> {
                 Selesai()
+            }
+            5 -> {
+                Ditolak()
             }
             else -> getItem(position)
         }

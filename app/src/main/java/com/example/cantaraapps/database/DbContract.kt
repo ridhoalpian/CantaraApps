@@ -11,4 +11,17 @@ object DbContract {
     const val urlKonfirPass = "http://$ip/testapi/api-konfirmasipass.php"
     const val urlPesanan = "http://$ip/testapi/api-pesanan.php"
     const val urlCariKue = "http://$ip/testapi/api-carikue.php"
+    const val urlRiwayatTrans = "http://$ip/testapi/api-riwayattrans.php"
+
+//    private const val ip = "https://cantara.tifc.myhost.id/cantara/testapi"
+//    const val urlRegister = "$ip/api-register.php"
+//    const val urlLogin = "$ip/api-login.php"
+//    const val urlLupa = "$ip/api-lupapass.php"
+//    const val urlGanti = "$ip/api-gantipass.php"
+//    const val urlHomeKue = "$ip/api-home.php"
+//    const val urlUpdateAkun = "$ip/api-updateakun.php"
+//    const val urlKonfirPass = "$ip/api-konfirmasipass.php"
+//    const val urlPesanan = "$ip/api-pesanan.php"
+//    const val urlCariKue = "$ip/api-carikue.php"
+//    const val urlRiwayatTrans = "$ip/api-riwayattrans.php"
 }

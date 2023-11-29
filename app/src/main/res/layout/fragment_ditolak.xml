@@ -3,10 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.fragment.Selesai">
+    tools:context=".ui.fragment.Ditolak">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/selesai"
+        android:id="@+id/ditolak"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginHorizontal="10dp"

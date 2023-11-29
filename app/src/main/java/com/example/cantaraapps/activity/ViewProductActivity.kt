@@ -5,6 +5,8 @@ import android.content.Intent
 import android.graphics.BitmapFactory
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.util.Base64
 import android.widget.Toast
 import com.example.cantaraapps.databinding.ActivityViewProductBinding
@@ -49,13 +51,27 @@ class ViewProductActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        binding.buttonKeranjang.setOnClickListener {
-            Toast.makeText(applicationContext, "Masuk ke Keranjang!", Toast.LENGTH_SHORT).show()
-        }
+//        binding.buttonKeranjang.setOnClickListener {
+//            Toast.makeText(applicationContext, "Masuk ke Keranjang!", Toast.LENGTH_SHORT).show()
+//        }
 
         val editText = binding.editText
         val btnPlus = binding.btnPlus
         val btnMinus = binding.btnMinus
+
+        editText.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+            }
+
+            override fun afterTextChanged(s: Editable?) {
+                if (s?.toString() == "0") {
+                    editText.setText("")
+                }
+            }
+        })
 
         btnPlus.setOnClickListener {
             val valueStr = editText.text.toString()
@@ -72,9 +88,11 @@ class ViewProductActivity : AppCompatActivity() {
 
             var value = Integer.parseInt(valueStr)
 
-            if (value > 0) {
+            if (value > 1) {
                 value--
                 editText.setText(value.toString())
+            }else{
+                btnMinus.isEnabled = false
             }
         }
 

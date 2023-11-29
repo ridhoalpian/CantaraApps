@@ -12,47 +12,47 @@ import com.android.volley.Request
 import com.android.volley.toolbox.JsonArrayRequest
 import com.android.volley.toolbox.Volley
 import com.example.cantaraapps.R
-import com.example.cantaraapps.adapter.PermintaanAdapter
-import com.example.cantaraapps.adapter.SelesaiAdapter
+import com.example.cantaraapps.adapter.DisetujuiAdapter
+import com.example.cantaraapps.adapter.DitolakAdapter
 import com.example.cantaraapps.data.RiwayatModel
 import com.example.cantaraapps.database.DbContract
-import com.example.cantaraapps.databinding.FragmentPengajuanBinding
-import com.example.cantaraapps.databinding.FragmentSelesaiBinding
+import com.example.cantaraapps.databinding.FragmentDisetujuiBinding
+import com.example.cantaraapps.databinding.FragmentDitolakBinding
 import org.json.JSONException
 
-class Selesai : Fragment(), SelesaiAdapter.SelesaiListener {
-    private lateinit var binding: FragmentSelesaiBinding
-    private val listSelesai = ArrayList<RiwayatModel>()
-    private lateinit var adapterSelesai: SelesaiAdapter
+class Ditolak : Fragment(), DitolakAdapter.DitolakListener {
+    private lateinit var binding: FragmentDitolakBinding
+    private val listDitolak = ArrayList<RiwayatModel>()
+    private lateinit var adapterDitolak: DitolakAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentSelesaiBinding.inflate(inflater, container, false)
+        binding = FragmentDitolakBinding.inflate(inflater, container, false)
 
-        binding.selesai.layoutManager =
+        binding.ditolak.layoutManager =
             LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, false)
-        adapterSelesai = SelesaiAdapter(requireContext(), listSelesai, this)
-        binding.selesai.adapter = adapterSelesai
-        fetchDataSelesaiFromServer("")
+        adapterDitolak = DitolakAdapter(requireContext(), listDitolak, this)
+        binding.ditolak.adapter = adapterDitolak
+        fetchDataDitolakFromServer("")
 
         return binding.root
     }
 
-    private fun fetchDataSelesaiFromServer(idUser: String) {
+    private fun fetchDataDitolakFromServer(idUser: String) {
 
         val sharedPreferences = requireContext().getSharedPreferences("user_data", Context.MODE_PRIVATE)
         val idUser = sharedPreferences.getString("id_user", "") ?: ""
 
-        val ket = "complete"
+        val ket = "rejected"
         val url = "${DbContract.urlRiwayatTrans}?id_user=$idUser&ket=$ket"
 
         val jsonArrayRequest = JsonArrayRequest(
             Request.Method.GET, url, null,
             { response ->
                 try {
-                    listSelesai.clear()
+                    listDitolak.clear()
 
                     for (i in 0 until response.length()) {
                         val pesananObject = response.getJSONObject(i)
@@ -64,10 +64,10 @@ class Selesai : Fragment(), SelesaiAdapter.SelesaiListener {
                         val tglTerima = pesananObject.getString("tgl_terima")
 
                         val pesanan = RiwayatModel(namaKue, jumlahPesan, satuan, totalHarga, ket, gambar, tglTerima)
-                        listSelesai.add(pesanan)
+                        listDitolak.add(pesanan)
                     }
 
-                    adapterSelesai.notifyDataSetChanged()
+                    adapterDitolak.notifyDataSetChanged()
 
                 } catch (e: JSONException) {
                     e.printStackTrace()

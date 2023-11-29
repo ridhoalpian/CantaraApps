@@ -8,7 +8,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.cantaraapps.data.ImageDataBanner
 import com.example.cantaraapps.databinding.ItemSlideBannerBinding
 
-class ImageAdapterSlider(private val context: Context, private val items: List<ImageDataBanner>) : RecyclerView.Adapter<ImageAdapterSlider.ImageViewHolder>() {
+class ImageAdapterSlider(
+    private val context: Context,
+    private val items: List<ImageDataBanner>) :
+    RecyclerView.Adapter<ImageAdapterSlider.ImageViewHolder>() {
 
     inner class ImageViewHolder(private val binding: ItemSlideBannerBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(data: ImageDataBanner) {

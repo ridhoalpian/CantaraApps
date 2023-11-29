@@ -10,45 +10,50 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cantaraapps.R
-import com.example.cantaraapps.data.KueItemClickListener
-import com.example.cantaraapps.data.KueModel
+import com.example.cantaraapps.data.RiwayatModel
 
-class KueAdapter(
+class DisetujuiAdapter (
     private val context: Context,
-    private val kueList: List<KueModel>,
-    private val clickListener: KueItemClickListener) :
-    RecyclerView.Adapter<KueAdapter.ViewHolder>() {
+    private val disetujuiList: List<RiwayatModel>,
+    private val listener: DisetujuiListener
+) : RecyclerView.Adapter<DisetujuiAdapter.ViewHolder>() {
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val namaKueTextView: TextView = itemView.findViewById(R.id.namaKue)
-        val kategoriTextView: TextView = itemView.findViewById(R.id.kategoriKue)
+        val jumlahTextView: TextView = itemView.findViewById(R.id.jumlahKue)
         val gambarImageView: ImageView = itemView.findViewById(R.id.gambarKue)
-        val hargaTextView: TextView = itemView.findViewById(R.id.hargaKue)
+        val totalpesanTextView: TextView = itemView.findViewById(R.id.totalpesanan)
+        val keteranganTextView: TextView = itemView.findViewById(R.id.keterangan)
+        val tglterimaTextView: TextView = itemView.findViewById(R.id.tgl_diterima)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view =
-            LayoutInflater.from(parent.context).inflate(R.layout.item_home_list, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(
+            R.layout.item_riwayat_list,
+            parent,
+            false
+        )
         return ViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val currentKue = kueList[position]
+        val currentKue = disetujuiList[position]
         holder.namaKueTextView.text = currentKue.namaKue
-        holder.kategoriTextView.text = "Kue ${currentKue.kategori}"
-        holder.hargaTextView.text = "Rp ${currentKue.hargaKue}"
+        holder.jumlahTextView.text = "${currentKue.jumlahPesan} ${currentKue.satuan}"
+        holder.totalpesanTextView.text = "Total Pesanan: Rp.${currentKue.totalHarga}"
+        holder.keteranganTextView.text = currentKue.ket
 
-        // Mendekode base64 dan menampilkan gambar
         val decodedImage = Base64.decode(currentKue.gambar, Base64.DEFAULT)
         val bitmap = BitmapFactory.decodeByteArray(decodedImage, 0, decodedImage.size)
         holder.gambarImageView.setImageBitmap(bitmap)
 
-        holder.itemView.setOnClickListener {
-            clickListener.onKueItemClicked(currentKue)
-        }
+        holder.tglterimaTextView.text = currentKue.tglTerima
     }
 
     override fun getItemCount(): Int {
-        return kueList.size
+        return disetujuiList.size
     }
+
+    // Fungsi onItemClick dihapus karena tidak digunakan
+    interface DisetujuiListener
 }

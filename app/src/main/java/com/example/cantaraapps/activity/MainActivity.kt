@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.cantaraapps.R
 import com.example.cantaraapps.databinding.ActivityMainBinding
-import com.example.cantaraapps.ui.fragment.Basket
+//import com.example.cantaraapps.ui.fragment.Basket
 import com.example.cantaraapps.ui.fragment.Home
 import com.example.cantaraapps.ui.fragment.Profile
 
@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
             when(it.itemId){
                 R.id.home -> replaceFragment(Home())
                 R.id.profile -> replaceFragment(Profile())
-                R.id.favorit -> replaceFragment(Basket())
+//                R.id.favorit -> replaceFragment(Basket())
                 else ->{
                 }
             }

@@ -38,6 +38,10 @@ class RegisterActivity : AppCompatActivity() {
         binding.buttonDaftar.setOnClickListener {
             registerUser()
         }
+
+        binding.btnKembaliRegister.setOnClickListener {
+            onBackPressed()
+        }
     }
 
     private fun registerUser() {

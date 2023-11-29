@@ -1,18 +1,23 @@
 package com.example.cantaraapps.activity
 
+import android.app.Activity
 import android.app.DatePickerDialog
 import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
 import android.content.Intent
 import android.graphics.BitmapFactory
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
+import android.provider.OpenableColumns
 import android.util.Base64
 import android.util.Log
 import android.widget.DatePicker
 import android.widget.Toast
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts
 import com.android.volley.AuthFailureError
 import com.android.volley.RequestQueue
 import com.android.volley.Response
@@ -25,10 +30,22 @@ import java.util.Calendar
 import java.util.Date
 import java.util.Locale
 import java.util.Random
+import java.util.concurrent.TimeUnit
 
 class CheckoutActivity : AppCompatActivity() {
     private lateinit var binding: ActivityCheckoutBinding
-    private val PICK_IMAGE_REQUEST = 1
+    private var selectedImageUri: Uri? = null
+
+    private val pickImage: ActivityResultLauncher<Intent> =
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+            if (result.resultCode == Activity.RESULT_OK) {
+                val data: Intent? = result.data
+                selectedImageUri = data?.data
+
+                binding.edtNamaFile.setText(getFileName(selectedImageUri))
+            }
+        }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -54,27 +71,36 @@ class CheckoutActivity : AppCompatActivity() {
         val satuan = intent.getStringExtra("satuan")
         val gambar = intent.getStringExtra("gambar")
         val jumlah = intent.getStringExtra("jumlah")
-        val totalHarga = intent.getStringExtra("total_harga")
+        val totalHarga = intent.getStringExtra("total_harga")?.toInt() ?: 0
 
         val textToCopy = "6282389422820"
+        val ongkirr = 10000
+
+        val totalsemua = totalHarga + ongkirr
+
+        binding.ongkoskrm.text = "Ongkos Kirim Rp.${ongkirr}"
+        binding.totalhrg.text = "Rp. $totalsemua"
 
         binding.floatingActionButton.setOnClickListener{
             onBackPressed()
         }
 
-        binding.btnRiwayatTran.setOnClickListener{
+        binding.btnPilihGambar.setOnClickListener {
             val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
-            intent.type = "image/*"
-            startActivityForResult(intent, PICK_IMAGE_REQUEST)
+            pickImage.launch(intent)
         }
+
 
         binding.copyBCA.setOnClickListener {
             copyToClipboard(textToCopy)
         }
 
-        binding.pilihtanggal.setOnClickListener {
+        binding.tglditerima.setOnClickListener {
             showDatePickerDialog()
         }
+
+        val currentDate = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(Date())
+        binding.tglpemesanan.text = currentDate
 
         binding.buttonPesan.setOnClickListener {
             insertDataToDatabase(iduser, totalHarga, idKue, jumlah)
@@ -83,7 +109,6 @@ class CheckoutActivity : AppCompatActivity() {
         binding.namaKue.text = namaKue
         binding.hrgkue.text = "Rp. $hargaKue"
         binding.bnykkue.text = "$jumlah $satuan"
-        binding.totalhrg.text = "Rp. $totalHarga"
 
 
         if (gambar != null && gambar!!.isNotEmpty()) {
@@ -95,6 +120,31 @@ class CheckoutActivity : AppCompatActivity() {
         binding.nomerakun.text = textToCopy
     }
 
+    private fun getFileName(uri: Uri?): String {
+        var result: String? = null
+        if (uri?.scheme == "content") {
+            val cursor = contentResolver.query(uri, null, null, null, null)
+            cursor?.use {
+                if (it.moveToFirst()) {
+                    val displayNameIndex = it.getColumnIndex(OpenableColumns.DISPLAY_NAME)
+                    if (displayNameIndex >= 0) {
+                        result = it.getString(displayNameIndex)
+                    } else {
+                        result = "unknown"
+                    }
+                }
+            }
+        }
+        if (result == null) {
+            result = uri?.path
+            val cut = result?.lastIndexOf('/')
+            if (cut != null && cut != -1) {
+                result = result?.substring(cut + 1)
+            }
+        }
+        return result ?: "unknown"
+    }
+
     private fun copyToClipboard(text: CharSequence) {
         val clipboardManager = getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
         val clipData = ClipData.newPlainText("label", text)
@@ -102,30 +152,27 @@ class CheckoutActivity : AppCompatActivity() {
     }
 
     private fun showDatePickerDialog() {
-        val calendar = Calendar.getInstance()
-        val year = calendar.get(Calendar.YEAR)
-        val month = calendar.get(Calendar.MONTH)
-        val day = calendar.get(Calendar.DAY_OF_MONTH)
+        val currentDate = Calendar.getInstance()
+        val year = currentDate.get(Calendar.YEAR)
+        val month = currentDate.get(Calendar.MONTH)
+        val day = currentDate.get(Calendar.DAY_OF_MONTH)
 
         val datePickerDialog = DatePickerDialog(
             this,
-            DatePickerDialog.OnDateSetListener { view: DatePicker, year: Int, monthOfYear: Int, dayOfMonth: Int ->
-                val tanggalPesan = "$year-${monthOfYear + 1}-$dayOfMonth"
-
-                // Parse the selected date
+            DatePickerDialog.OnDateSetListener { _, year: Int, monthOfYear: Int, dayOfMonth: Int ->
                 val selectedCalendar = Calendar.getInstance()
                 selectedCalendar.set(year, monthOfYear, dayOfMonth)
 
-                // Add 3 days to the selected date
-                selectedCalendar.add(Calendar.DAY_OF_MONTH, 3)
+                val selisihMillis = selectedCalendar.timeInMillis - currentDate.timeInMillis
+                val selisihHari = TimeUnit.MILLISECONDS.toDays(selisihMillis)
 
-                // Format the new date
-                val newDate = selectedCalendar.time
-                val tanggalDiterima = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(newDate)
-
-                // Set the text for tglditentukan and diterima
-                binding.tglditentukan.text = tanggalPesan
-                binding.tglditerima.text = tanggalDiterima
+                if (selisihHari >= 3) {
+                    val newDate = selectedCalendar.time
+                    val tanggalDiterima = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(newDate)
+                    binding.tglditerima.text = tanggalDiterima
+                } else {
+                    Toast.makeText(this, "Jarak tanggal penerimaan terlalu dekat. Silahkan pilih tanggal lain", Toast.LENGTH_SHORT).show()
+                }
             },
             year,
             month,
@@ -155,9 +202,16 @@ class CheckoutActivity : AppCompatActivity() {
         return randomCode.toString()
     }
 
+    private fun convertImageToBase64(uri: Uri): String {
+        val inputStream = contentResolver.openInputStream(uri)
+        val bytes = inputStream?.readBytes()
+        inputStream?.close()
+        return Base64.encodeToString(bytes, Base64.DEFAULT)
+    }
+
     private fun insertDataToDatabase(
         iduser: String?,
-        totalHarga: String?,
+        totalHarga: Int?,
         idKue: String?,
         jumlah: String?
     ) {
@@ -167,7 +221,6 @@ class CheckoutActivity : AppCompatActivity() {
         val pesanText = binding.edtPesan.text.toString()
 
         if (pesanText.isBlank()) {
-            // Show a toast message indicating that all data must be filled
             Toast.makeText(applicationContext, "Semua data harus diisi", Toast.LENGTH_SHORT).show()
             return
         }
@@ -191,13 +244,20 @@ class CheckoutActivity : AppCompatActivity() {
                 params["id_pesanan"] = idPesanan
                 params["id_user"] = iduser.toString()
                 params["total_harga"] = totalHarga.toString()
-                params["tgl_pesan"] = binding.tglditentukan.text.toString()
+                params["tgl_pesan"] = binding.tglpemesanan.text.toString()
                 params["tgl_terima"] = binding.tglditerima.text.toString()
                 params["pesan"] = pesanText
                 params["id_detailpesanan"] = idDetailPesanan
                 params["id_kue"] = idKue.toString()
                 params["jumlah_pesan"] = jumlah.toString()
                 params["harga"] = totalHarga.toString()
+
+                // Convert the image to Base64 and add it to params
+                selectedImageUri?.let {
+                    val imageBase64 = convertImageToBase64(it)
+                    params["bukti"] = imageBase64
+                }
+
                 return params
             }
         }

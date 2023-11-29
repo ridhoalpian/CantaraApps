@@ -33,17 +33,25 @@
                     android:scaleType="centerCrop"
                     android:src="@drawable/dargul" />
 
-                <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/floatingActionButton"
-                    android:layout_width="30dp"
-                    android:layout_height="27dp"
+                <FrameLayout
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="20dp"
-                    android:background="@drawable/ic_baseline_arrow_back_24"
-                    android:backgroundTint="@color/black"
-                    android:contentDescription="Kembali ke layar sebelumnya"
+                    android:background="@drawable/button_round_1"
+                    android:backgroundTint="#FFFFFF"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/cardImage" />
+                    app:layout_constraintTop_toTopOf="@+id/cardImage">
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/floatingActionButton"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/ic_baseline_arrow_back_24"
+                        android:backgroundTint="@color/black"
+                        android:contentDescription="Kembali ke layar sebelumnya" />
+            </FrameLayout>
 
             </androidx.cardview.widget.CardView>
 
@@ -51,27 +59,15 @@
                 android:id="@+id/namaKue"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:layout_marginRight="30dp"
                 android:layout_marginLeft="20dp"
-                android:layout_marginRight="70dp"
-                android:layout_marginTop="20dp"
                 android:fontFamily="@font/montserrat_medium"
                 android:text="Dadar Gulung"
                 android:textSize="18sp"
-                app:layout_constraintEnd_toStartOf="@+id/button_keranjang"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/cardImage" />
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/button_keranjang"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_marginRight="20dp"
-                android:background="@drawable/ic_outline_shopping_cart_24"
-                android:backgroundTint="@color/blackdikit"
-                android:contentDescription="Kembali ke layar sebelumnya"
-                app:layout_constraintBottom_toBottomOf="@+id/hargaKue"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/namaKue" />
 
             <TextView
                 android:id="@+id/hargaKue"
@@ -213,7 +209,7 @@
                 android:id="@+id/imageView6"
                 android:layout_width="match_parent"
                 android:layout_height="7dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="30dp"
                 android:background="#E3E3E3"
                 app:layout_constraintTop_toBottomOf="@+id/hargaKue"
                 tools:layout_editor_absoluteX="20dp" />

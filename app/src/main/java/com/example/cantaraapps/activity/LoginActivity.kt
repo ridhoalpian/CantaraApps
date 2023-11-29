@@ -30,8 +30,8 @@ class LoginActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.buttonMasuk.setOnClickListener {
-            loginUser()
-//            startActivity(Intent(this, MainActivity::class.java))
+//            loginUser()
+            startActivity(Intent(this, MainActivity::class.java))
         }
 
         binding.daftar.setOnClickListener {
@@ -71,6 +71,8 @@ class LoginActivity : AppCompatActivity() {
 
                         Toast.makeText(applicationContext, "Selamat Datang ${userData.getString("nama")}", Toast.LENGTH_SHORT).show()
                         startActivity(Intent(applicationContext, MainActivity::class.java))
+
+                        finish()
                     }
                 }
             ) { error ->

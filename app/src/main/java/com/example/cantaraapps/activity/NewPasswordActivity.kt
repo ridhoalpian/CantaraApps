@@ -26,6 +26,10 @@ class NewPasswordActivity : AppCompatActivity() {
             gantiPassword()
 //            startActivity(Intent(this, LoginActivity::class.java))
         }
+
+        binding.btnKembaliPassbaru.setOnClickListener {
+            onBackPressed()
+        }
     }
     private fun gantiPassword() {
         val username = intent.getStringExtra("username")

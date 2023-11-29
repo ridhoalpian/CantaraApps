@@ -74,7 +74,7 @@ class Home : Fragment(), KueItemClickListener {
 
         binding.whatsapp.setOnClickListener {
             val nomorTelepon = "6282389422820"
-            val pesan = "Halo, saya ingin chat dengan Anda!"
+            val pesan = "Halo, saya ingin bertanya tentang pembelian kue!"
 
             val intent = Intent(Intent.ACTION_VIEW)
             intent.data = Uri.parse("https://api.whatsapp.com/send?phone=$nomorTelepon&text=$pesan")
@@ -265,7 +265,7 @@ class Home : Fragment(), KueItemClickListener {
 
         for (button in buttons) {
             if (button.id == selectedButtonId) {
-                button.setBackgroundResource(R.drawable.button_round_1)
+                button.setBackgroundResource(R.drawable.button_homekategori_gradient)
                 button.setTextColor(ContextCompat.getColor(requireContext(), R.color.white))
             } else {
                 button.setBackgroundResource(R.drawable.rounded_border_gray)

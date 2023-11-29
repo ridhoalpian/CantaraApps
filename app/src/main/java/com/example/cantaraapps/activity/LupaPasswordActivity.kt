@@ -23,6 +23,10 @@ class LupaPasswordActivity : AppCompatActivity() {
             konfirmasiUser()
 //            startActivity(Intent(this, NewPasswordActivity::class.java))
         }
+
+        binding.btnKonfirAkun.setOnClickListener {
+            onBackPressed()
+        }
     }
 
     private fun konfirmasiUser() {
@@ -42,6 +46,7 @@ class LupaPasswordActivity : AppCompatActivity() {
                         val intent = Intent(applicationContext, NewPasswordActivity::class.java)
                         intent.putExtra("username", username)
                         startActivity(intent)
+                        finish()
                     } else {
                         Toast.makeText(applicationContext, "Username atau Makanan Favorit salah", Toast.LENGTH_SHORT).show()
                     }
