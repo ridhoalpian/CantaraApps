@@ -45,8 +45,8 @@ class Ditolak : Fragment(), DitolakAdapter.DitolakListener {
         val sharedPreferences = requireContext().getSharedPreferences("user_data", Context.MODE_PRIVATE)
         val idUser = sharedPreferences.getString("id_user", "") ?: ""
 
-        val ket = "rejected"
-        val url = "${DbContract.urlRiwayatTrans}?id_user=$idUser&ket=$ket"
+        val ket = "Ditolak"
+        val url = "${DbContract.urlRiwayatTrans}&id_user=$idUser&ket=$ket"
 
         val jsonArrayRequest = JsonArrayRequest(
             Request.Method.GET, url, null,

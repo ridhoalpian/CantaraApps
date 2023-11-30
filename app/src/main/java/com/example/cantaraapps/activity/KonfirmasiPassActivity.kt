@@ -36,7 +36,7 @@ class KonfirmasiPassActivity : AppCompatActivity() {
             val requestQueue: RequestQueue = Volley.newRequestQueue(applicationContext)
 
             val stringRequest = StringRequest(
-                Request.Method.GET, "${DbContract.urlKonfirPass}?username=$username&password=$password",
+                Request.Method.GET, "${DbContract.urlKonfirPass}&username=$username&password=$password",
                 { response ->
                     if (response == "Tolong Masukkan Password Baru") {
                         Toast.makeText(applicationContext, "Konfirmasi Berhasil", Toast.LENGTH_SHORT).show()

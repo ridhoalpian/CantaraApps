@@ -30,8 +30,8 @@ class LoginActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.buttonMasuk.setOnClickListener {
-//            loginUser()
-            startActivity(Intent(this, MainActivity::class.java))
+            loginUser()
+//            startActivity(Intent(this, MainActivity::class.java))
         }
 
         binding.daftar.setOnClickListener {
@@ -52,7 +52,7 @@ class LoginActivity : AppCompatActivity() {
             val requestQueue: RequestQueue = Volley.newRequestQueue(applicationContext)
 
             val stringRequest = StringRequest(
-                Request.Method.GET, "${DbContract.urlLogin}?username=$username&password=$password",
+                Request.Method.GET, "${DbContract.urlLogin}&username=$username&password=$password",
                 { response ->
                     if (response == "0") {
                         Toast.makeText(applicationContext, "Username atau Password Salah", Toast.LENGTH_SHORT).show()

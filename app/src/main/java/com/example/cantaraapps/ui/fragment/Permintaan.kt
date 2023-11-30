@@ -42,8 +42,8 @@ class Permintaan : Fragment(), PermintaanAdapter.PermintaanListener {
         val sharedPreferences = requireContext().getSharedPreferences("user_data", Context.MODE_PRIVATE)
         val idUser = sharedPreferences.getString("id_user", "") ?: ""
 
-        val ket = "request"
-        val url = "${DbContract.urlRiwayatTrans}?id_user=$idUser&ket=$ket"
+        val ket = "Diminta"
+        val url = "${DbContract.urlRiwayatTrans}&id_user=$idUser&ket=$ket"
 
         val jsonArrayRequest = JsonArrayRequest(
             Request.Method.GET, url, null,

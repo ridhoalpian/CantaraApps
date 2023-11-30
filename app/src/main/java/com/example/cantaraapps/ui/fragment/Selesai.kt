@@ -45,8 +45,8 @@ class Selesai : Fragment(), SelesaiAdapter.SelesaiListener {
         val sharedPreferences = requireContext().getSharedPreferences("user_data", Context.MODE_PRIVATE)
         val idUser = sharedPreferences.getString("id_user", "") ?: ""
 
-        val ket = "complete"
-        val url = "${DbContract.urlRiwayatTrans}?id_user=$idUser&ket=$ket"
+        val ket = "Selesai"
+        val url = "${DbContract.urlRiwayatTrans}&id_user=$idUser&ket=$ket"
 
         val jsonArrayRequest = JsonArrayRequest(
             Request.Method.GET, url, null,

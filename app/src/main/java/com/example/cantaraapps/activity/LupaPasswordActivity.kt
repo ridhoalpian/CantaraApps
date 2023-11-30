@@ -39,7 +39,7 @@ class LupaPasswordActivity : AppCompatActivity() {
 
 
             val stringRequest = StringRequest(
-                Request.Method.GET, "${DbContract.urlLupa}?username=$username&security=$security",
+                Request.Method.GET, "${DbContract.urlLupa}&username=$username&security=$security",
                 { response ->
                     if (response == "Tolong Masukkan Password Baru") {
                         Toast.makeText(applicationContext, "Konfirmasi Berhasil", Toast.LENGTH_SHORT).show()

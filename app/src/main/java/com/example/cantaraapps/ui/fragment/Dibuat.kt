@@ -42,8 +42,8 @@ class Dibuat : Fragment(), DibuatAdapter.DibuatListener {
         val sharedPreferences = requireContext().getSharedPreferences("user_data", Context.MODE_PRIVATE)
         val idUser = sharedPreferences.getString("id_user", "") ?: ""
 
-        val ket = "proccess"
-        val url = "${DbContract.urlRiwayatTrans}?id_user=$idUser&ket=$ket"
+        val ket = "Dibuat"
+        val url = "${DbContract.urlRiwayatTrans}&id_user=$idUser&ket=$ket"
 
         val jsonArrayRequest = JsonArrayRequest(
             Request.Method.GET, url, null,

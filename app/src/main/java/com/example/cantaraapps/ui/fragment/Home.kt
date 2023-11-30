@@ -176,7 +176,7 @@ class Home : Fragment(), KueItemClickListener {
         val url = if (kategori.toLowerCase(Locale.ROOT) == "semua") {
             DbContract.urlHomeKue
         } else {
-            "${DbContract.urlHomeKue}?kategori=$kategori"
+            "${DbContract.urlHomeKue}&kategori=$kategori"
         }
 
         val jsonArrayRequest = JsonArrayRequest(
@@ -213,7 +213,7 @@ class Home : Fragment(), KueItemClickListener {
     }
 
     private fun searchKueFromServer(namaKue: String) {
-        val url = "${DbContract.urlCariKue}?nama_kue=$namaKue"
+        val url = "${DbContract.urlCariKue}&nama_kue=$namaKue"
 
         val jsonArrayRequest = JsonArrayRequest(
             Request.Method.GET, url, null,
