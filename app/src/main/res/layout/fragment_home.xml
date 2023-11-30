@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.fragment.Home"
-    android:background="#F4FAFA">
+    android:background="#FFFFFF">
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/whatsapp"
@@ -65,9 +65,9 @@
                 android:id="@+id/tampilanKue"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                app:spanCount="2"
                 android:layout_marginBottom="10dp"
-                android:layout_marginHorizontal="10dp"
+                android:layout_marginHorizontal="5dp"
                 tools:listitem="@layout/item_home_list"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"

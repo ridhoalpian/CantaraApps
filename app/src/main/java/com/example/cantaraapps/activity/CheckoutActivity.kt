@@ -25,6 +25,7 @@ import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.example.cantaraapps.database.DbContract
 import com.example.cantaraapps.databinding.ActivityCheckoutBinding
+import java.io.InputStream
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Date
@@ -209,6 +210,11 @@ class CheckoutActivity : AppCompatActivity() {
         return Base64.encodeToString(bytes, Base64.DEFAULT)
     }
 
+    private fun convertImageToByteArray(uri: Uri): ByteArray {
+        val inputStream: InputStream? = contentResolver.openInputStream(uri)
+        return inputStream?.readBytes() ?: byteArrayOf()
+    }
+
     private fun insertDataToDatabase(
         iduser: String?,
         totalHarga: Int?,
@@ -254,10 +260,9 @@ class CheckoutActivity : AppCompatActivity() {
 
                 // Convert the image to Base64 and add it to params
                 selectedImageUri?.let {
-                    val imageBase64 = convertImageToBase64(it)
-                    params["bukti"] = imageBase64
+                    val imageByteArray = convertImageToByteArray(it)
+                    params["bukti"] = Base64.encodeToString(imageByteArray, Base64.DEFAULT)
                 }
-
                 return params
             }
         }

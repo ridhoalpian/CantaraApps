@@ -34,9 +34,9 @@ class KueAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val currentKue = kueList[position]
-        holder.namaKueTextView.text = currentKue.namaKue
+        holder.namaKueTextView.text = "Kue ${currentKue.namaKue}"
         holder.kategoriTextView.text = "Kue ${currentKue.kategori}"
-        holder.hargaTextView.text = "Rp ${currentKue.hargaKue}"
+        holder.hargaTextView.text = "Rp.${currentKue.hargaKue}"
 
         // Mendekode base64 dan menampilkan gambar
         val decodedImage = Base64.decode(currentKue.gambar, Base64.DEFAULT)

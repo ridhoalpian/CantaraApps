@@ -38,7 +38,7 @@ class SelesaiAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val currentKue = selesaiList[position]
-        holder.namaKueTextView.text = currentKue.namaKue
+        holder.namaKueTextView.text = "Kue ${currentKue.namaKue}"
         holder.jumlahTextView.text = "${currentKue.jumlahPesan} ${currentKue.satuan}"
         holder.totalpesanTextView.text = "Total Pesanan: Rp.${currentKue.totalHarga}"
         holder.keteranganTextView.text = currentKue.ket

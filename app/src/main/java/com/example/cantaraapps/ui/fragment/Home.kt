@@ -15,6 +15,7 @@ import android.widget.Toast
 import androidx.appcompat.widget.SearchView
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
@@ -105,8 +106,9 @@ class Home : Fragment(), KueItemClickListener {
         dots = ArrayList()
         setIndicator()
 
-        binding.tampilanKue.layoutManager =
-            LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, false)
+
+        binding.tampilanKue.layoutManager = GridLayoutManager(requireContext(), 2, RecyclerView.VERTICAL, false)
+
         adapterKue = KueAdapter(requireContext(), listKue, this)
         binding.tampilanKue.adapter = adapterKue
         fetchDataKueFromServer("semua")

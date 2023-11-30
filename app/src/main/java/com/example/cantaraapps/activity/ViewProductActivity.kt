@@ -10,6 +10,8 @@ import android.text.TextWatcher
 import android.util.Base64
 import android.widget.Toast
 import com.example.cantaraapps.databinding.ActivityViewProductBinding
+import java.text.NumberFormat
+import java.util.Locale
 
 class ViewProductActivity : AppCompatActivity() {
     private lateinit var binding: ActivityViewProductBinding
@@ -51,10 +53,6 @@ class ViewProductActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-//        binding.buttonKeranjang.setOnClickListener {
-//            Toast.makeText(applicationContext, "Masuk ke Keranjang!", Toast.LENGTH_SHORT).show()
-//        }
-
         val editText = binding.editText
         val btnPlus = binding.btnPlus
         val btnMinus = binding.btnMinus
@@ -91,7 +89,7 @@ class ViewProductActivity : AppCompatActivity() {
             if (value > 1) {
                 value--
                 editText.setText(value.toString())
-            }else{
+            } else {
                 btnMinus.isEnabled = false
             }
         }
@@ -99,15 +97,14 @@ class ViewProductActivity : AppCompatActivity() {
         idKue = intent.getStringExtra("id_kue")
         namaKue = intent.getStringExtra("nama_kue")
         hargaKue = intent.getStringExtra("harga")
-        gambar = intent.getStringExtra("gambar") // Retrieve gambar from intent
+        gambar = intent.getStringExtra("gambar")
         kategori = intent.getStringExtra("kategori")
         jumlah = intent.getStringExtra("jumlah")
         satuan = intent.getStringExtra("satuan")
 
-        // Set values to views
-        binding.namaKue.text = namaKue
-        binding.hargaKue.text = "Rp. $hargaKue"
-        binding.kategori.text = kategori
+        binding.namaKue.text = "Kue $namaKue"
+        binding.hargaKue.text = "Rp.$hargaKue"
+        binding.kategori.text = "Kue $kategori"
         binding.satuan.text = satuan
         binding.jumlah.text = jumlah
 
