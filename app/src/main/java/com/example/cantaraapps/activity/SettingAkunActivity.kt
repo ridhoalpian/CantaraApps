@@ -2,6 +2,8 @@ package com.example.cantaraapps.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.widget.Toast
 import com.android.volley.RequestQueue
 import com.android.volley.toolbox.StringRequest
@@ -35,10 +37,33 @@ class SettingAkunActivity : AppCompatActivity() {
             onBackPressed()
         }
 
+        binding.edtNamalengkap.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                if (s?.any { it.isDigit() } == true) {
+                    val newText = s.substring(0, s.length - 1)
+                    binding.edtNamalengkap.setText(newText)
+                    binding.edtNamalengkap.setSelection(newText.length)
+                    Toast.makeText(applicationContext,
+                        "Nama tidak boleh mengandung angka",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+            }
+
+            override fun afterTextChanged(s: Editable?) {
+
+            }
+        })
+
         binding.buttonSimpan.setOnClickListener {
             val nama = binding.edtNamalengkap.text.toString()
             val alamatlengkap = binding.edtAlamat.text.toString()
             val telp = binding.edtTelp.text.toString()
+
 
             if (nama.isNotEmpty() && alamatlengkap.isNotEmpty() && telp.isNotEmpty()) {
                 updateUserDataOnServer(username, nama, alamatlengkap, telp)

@@ -3,6 +3,8 @@ package com.example.cantaraapps.activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.widget.ArrayAdapter
 import android.widget.Spinner
 import android.widget.Toast
@@ -42,6 +44,7 @@ class RegisterActivity : AppCompatActivity() {
         binding.btnKembaliRegister.setOnClickListener {
             onBackPressed()
         }
+
     }
 
     private fun registerUser() {
@@ -52,6 +55,21 @@ class RegisterActivity : AppCompatActivity() {
         val telp = binding.edtTelp.text.toString()
         val security = binding.edtLupaPass.text.toString()
         val kecamatan = binding.autocomplatext.text.toString()
+
+        if (nama.any { it.isDigit() }) {
+            Toast.makeText(applicationContext, "Nama tidak boleh mengandung angka", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        if (password.length < 4) {
+            Toast.makeText(applicationContext, "Password minimal 4 karakter", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        if (password.length > 8) {
+            Toast.makeText(applicationContext, "Password maksimal 8 karakter", Toast.LENGTH_SHORT).show()
+            return
+        }
 
 
         if (!(username.isEmpty() || password.isEmpty() || alamatlengkap.isEmpty() || nama.isEmpty() || telp.isEmpty() || security.isEmpty())) {
