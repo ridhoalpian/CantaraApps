@@ -71,6 +71,16 @@ class RegisterActivity : AppCompatActivity() {
             return
         }
 
+        if (telp.length < 9) {
+            Toast.makeText(applicationContext, "Nomer Telepon minimal 9 karakter", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        if (telp.length > 13) {
+            Toast.makeText(applicationContext, "Nomer Telepon maksimal 13 karakter", Toast.LENGTH_SHORT).show()
+            return
+        }
+
 
         if (!(username.isEmpty() || password.isEmpty() || alamatlengkap.isEmpty() || nama.isEmpty() || telp.isEmpty() || security.isEmpty())) {
 

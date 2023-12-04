@@ -64,11 +64,16 @@ class SettingAkunActivity : AppCompatActivity() {
             val alamatlengkap = binding.edtAlamat.text.toString()
             val telp = binding.edtTelp.text.toString()
 
-
-            if (nama.isNotEmpty() && alamatlengkap.isNotEmpty() && telp.isNotEmpty()) {
-                updateUserDataOnServer(username, nama, alamatlengkap, telp)
+            if (telp.length < 9) {
+                Toast.makeText(applicationContext, "Nomer telepon minimal 9 karakter", Toast.LENGTH_SHORT).show()
+            } else if (telp.length > 13) {
+                Toast.makeText(applicationContext, "Nomer telepon maksimal 13 karakter", Toast.LENGTH_SHORT).show()
             } else {
-                Toast.makeText(applicationContext, "Semua field harus diisi", Toast.LENGTH_SHORT).show()
+                if (nama.isNotEmpty() && alamatlengkap.isNotEmpty() && telp.isNotEmpty()) {
+                    updateUserDataOnServer(username, nama, alamatlengkap, telp)
+                } else {
+                    Toast.makeText(applicationContext, "Semua field harus diisi", Toast.LENGTH_SHORT).show()
+                }
             }
         }
     }
