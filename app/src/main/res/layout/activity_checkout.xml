@@ -170,7 +170,6 @@
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
-
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
             </com.google.android.material.card.MaterialCardView>
@@ -284,7 +283,17 @@
                 android:background="@color/abu"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/alamatuser" />
+                app:layout_constraintTop_toBottomOf="@+id/ongkoskrm" />
+
+            <ImageView
+                android:id="@+id/imageView12"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="20dp"
+                android:background="@color/abu"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/materialCardView2" />
 
             <ImageView
                 android:id="@+id/imageView10"
@@ -301,20 +310,19 @@
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:layout_marginTop="20dp"
-                android:layout_marginBottom="20dp"
                 android:background="@color/abu"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/btn_pilih_gambar" />
+                app:layout_constraintTop_toBottomOf="@+id/btn_konfirmasi_pembayaran" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btn_pilih_gambar"
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
                 android:layout_marginHorizontal="20dp"
-                android:layout_marginTop="10dp"
                 android:background="@drawable/button_1"
                 android:drawablePadding="20dp"
+                android:layout_marginTop="20dp"
                 android:drawableTint="@color/blackdikit"
                 android:fontFamily="@font/montserrat_medium"
                 android:paddingHorizontal="20dp"
@@ -323,22 +331,39 @@
                 android:textColor="@color/blackdikit"
                 android:textSize="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textunggah" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tampilbukti" />
 
-            <EditText
-                android:id="@+id/edt_nama_file"
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_konfirmasi_pembayaran"
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="10dp"
+                android:layout_marginHorizontal="20dp"
+                android:background="@drawable/button_1"
+                android:drawablePadding="20dp"
+                android:layout_marginTop="10dp"
+                android:drawableTint="@color/blackdikit"
                 android:fontFamily="@font/montserrat_medium"
+                android:paddingHorizontal="20dp"
+                android:text="Konfirmasi Pembayaran"
                 android:textAllCaps="false"
                 android:textColor="@color/blackdikit"
-                android:textSize="15sp"
-                app:layout_constraintBottom_toBottomOf="@+id/btn_pilih_gambar"
-                app:layout_constraintEnd_toStartOf="@+id/btn_pilih_gambar"
+                android:textSize="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/btn_pilih_gambar" />
+                app:layout_constraintTop_toBottomOf="@+id/btn_pilih_gambar" />
+
+            <ImageView
+                android:id="@+id/tampilbukti"
+                android:layout_width="100dp"
+                android:layout_height="150dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="10dp"
+                android:scaleType="centerCrop"
+                android:background="@drawable/rounded_border_gray"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textunggah" />
 
             <TextView
                 android:id="@+id/text_estim"
@@ -405,13 +430,14 @@
                 android:id="@+id/perhatiandp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
                 android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="20dp"
                 android:fontFamily="@font/montserrat_medium"
+                android:textStyle="bold"
                 android:text="Untuk pembayaran, bisa dibayar 50% atau 100% melalui akun GoPay dibawah ini:"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/ongkoskrm" />
+                app:layout_constraintTop_toBottomOf="@+id/imageView11" />
 
             <TextView
                 android:id="@+id/namadantelp"
@@ -430,36 +456,36 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
-                android:layout_marginTop="20dp"
-                android:fontFamily="@font/montserrat_bold"
-                android:text="Ongkos Kirim"
-                android:textSize="15sp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/montserrat_medium"
+                android:text="Untuk ongkos kirim anda - "
+                android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView11" />
+                app:layout_constraintTop_toBottomOf="@+id/alamatuser" />
 
             <TextView
                 android:id="@+id/textunggah"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="20dp"
                 android:fontFamily="@font/montserrat_bold"
                 android:text="Unggah Bukti Pembayaran"
+                android:textAlignment="center"
                 android:textSize="15sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/materialCardView2" />
+                app:layout_constraintTop_toBottomOf="@+id/imageView12" />
 
             <TextView
                 android:id="@+id/tglditerima"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:fontFamily="@font/montserrat_medium"
-                android:textStyle="bold"
+                android:fontFamily="@font/montserrat_bold"
                 android:layout_marginLeft="20dp"
-                android:text="Pilih Tanggal"
+                android:text="Silahkan pilih tanggal..."
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/text_estim" />
 

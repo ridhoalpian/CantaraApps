@@ -26,8 +26,8 @@
             }
 
             binding.floatingActionButton.setOnClickListener {
-                val nomorTelepon = "6282389422820"
-                val pesan = "Halo, saya ingin bertanya tentang pesanan saya!"
+                val nomorTelepon = "6285785932132"
+                val pesan = "Hai admin, saya ingin bertanya tentang pesanan saya!"
 
                 val intent = Intent(Intent.ACTION_VIEW)
                 intent.data = Uri.parse("https://api.whatsapp.com/send?phone=$nomorTelepon&text=$pesan")
